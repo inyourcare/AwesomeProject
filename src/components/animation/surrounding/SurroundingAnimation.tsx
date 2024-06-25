@@ -1,9 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 import LottieView from 'lottie-react-native';
-import {Text} from 'react-native';
+import {StyleProp, ViewStyle} from 'react-native';
 import myAnimation from './animation.json';
-
-export default function Animation() {
+export default function Animation({style}: {style: StyleProp<ViewStyle>}) {
   const animationRef = useRef<LottieView>(null);
 
   useEffect(() => {
@@ -16,12 +15,7 @@ export default function Animation() {
     <LottieView
       ref={animationRef}
       source={myAnimation}
-      style={{
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        opacity: 0.3,
-      }}
+      style={style}
       autoPlay
       loop
     />

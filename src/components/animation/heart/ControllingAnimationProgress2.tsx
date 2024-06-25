@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {Animated, Easing, SafeAreaView, Text, View} from 'react-native';
+import {Animated, Easing, StyleProp, ViewStyle} from 'react-native';
 import LottieView from 'lottie-react-native';
 import myAnimation from './animation3.json';
 
 const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
-export default function ControllingAnimationProgress2() {
+export default function ControllingAnimationProgress2({style}: {style: StyleProp<ViewStyle>}) {
   const animationProgress = useRef(new Animated.Value(0));
   const [basetime, setBasetime] = useState(500);
 
@@ -74,13 +74,7 @@ export default function ControllingAnimationProgress2() {
         },
       ]}
       progress={animationProgress.current}
-      style={{
-        width: '100%',
-        height: '100%',
-        // backgroundColor: 'black',
-        position: 'absolute',
-        opacity: 0.3,
-      }}
+      style={style}
     />
   );
 }

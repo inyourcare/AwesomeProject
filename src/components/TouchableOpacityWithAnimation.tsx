@@ -15,8 +15,12 @@ export default function TouchableOpacityWithAnimation() {
 
   return (
     <SafeAreaView style={{width: '100%', height: '100%'}}>
-      <SurroundingAnimation />
-      <HeartBeat />
+      <SurroundingAnimation
+        style={styles.backLottieAnimation}
+      />
+      <HeartBeat
+        style={styles.backLottieAnimation}
+      />
       <View style={styles.container}>
         <View style={styles.countContainer}>
           <Text>Count: {count}</Text>
@@ -46,4 +50,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
+  backLottieAnimation: {
+    width: '100%',
+    height: '100%',
+    // backgroundColor: 'black',
+    position: 'absolute',
+    opacity: 0.3,
+  }
 });
