@@ -1,0 +1,2 @@
+import ControllingAnimationProgress2 from './ControllingAnimationProgress2'
+export default ControllingAnimationProgress2

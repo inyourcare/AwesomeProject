@@ -24,9 +24,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Animation from './src/components/Animation';
-import ControllingAnimationProgress from './src/components/ControllingAnimationProgress';
-import ControllingAnimationProgress2 from './src/components/ControllingAnimationProgress2';
+import Animation from './src/components/animation/heart/Animation';
+import ControllingAnimationProgress from './src/components/animation/heart/ControllingAnimationProgress';
+import ControllingAnimationProgress2 from './src/components/animation/heart/ControllingAnimationProgress2';
 import TouchableOpacityWithAnimation from './src/components/TouchableOpacityWithAnimation';
 
 type SectionProps = PropsWithChildren<{

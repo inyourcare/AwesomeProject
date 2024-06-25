@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import ControllingAnimationProgress2 from './ControllingAnimationProgress2';
+import HeartBeat from './animation/heart';
 
 export default function TouchableOpacityWithAnimation() {
   const [count, setCount] = useState(0);
@@ -14,15 +14,15 @@ export default function TouchableOpacityWithAnimation() {
 
   return (
     <SafeAreaView style={{width: '100%', height: '100%'}}>
-      <ControllingAnimationProgress2 />
-      {/* <View style={styles.container}>
+      <HeartBeat />
+      <View style={styles.container}>
         <View style={styles.countContainer}>
           <Text>Count: {count}</Text>
         </View>
         <TouchableOpacity style={styles.button} onPress={onPress}>
           <Text>Press Here</Text>
         </TouchableOpacity>
-      </View> */}
+      </View>
     </SafeAreaView>
   );
 }
@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 10,
+    // position: 'absolute'
+    // zIndex: 100
   },
   button: {
     alignItems: 'center',

@@ -79,6 +79,7 @@ export default function ControllingAnimationProgress2() {
         height: '100%',
         // backgroundColor: 'black',
         position: 'absolute',
+        opacity: 0.3,
       }}
     />
   );
