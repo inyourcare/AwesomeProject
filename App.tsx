@@ -24,6 +24,10 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Animation from './src/components/Animation';
+import ControllingAnimationProgress from './src/components/ControllingAnimationProgress';
+import ControllingAnimationProgress2 from './src/components/ControllingAnimationProgress2';
+import TouchableOpacityWithAnimation from './src/components/TouchableOpacityWithAnimation';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -64,7 +68,7 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar
+      {/* <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
@@ -91,7 +95,11 @@ function App(): React.JSX.Element {
           </Section>
           <LearnMoreLinks />
         </View>
-      </ScrollView>
+      </ScrollView> */}
+
+      {/* <Animation /> */}
+      {/* <ControllingAnimationProgress2 /> */}
+      <TouchableOpacityWithAnimation />
     </SafeAreaView>
   );
 }

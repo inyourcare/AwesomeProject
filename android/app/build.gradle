@@ -75,12 +75,22 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.awesomeproject"
+
     defaultConfig {
         applicationId "com.awesomeproject"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        // NDK settings
+        ndk {
+            abiFilters 'x86' , 'x86_64' , 'armeabi-v7a', 'arm64-v8a'
+        }
+        externalNativeBuild {
+            cmake {
+                version "3.9.0"
+            }
+        }
     }
     signingConfigs {
         debug {
@@ -105,8 +115,31 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:32.8.1')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.newrelic.agent.android:android-agent:7.3.1'
+
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    // implementation project(':react-native-push-notification')
+    implementation 'com.google.android.gms:play-services-location:21.2.0'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+
+    implementation 'com.facebook.fresco:fresco:2.5.0'
+    implementation 'com.facebook.fresco:animated-gif:2.5.0'
+    // implementation "androidx.appcompat:appcompat:1.0.0" // implementation by react-native video
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.karumi:dexter:6.2.3'
+
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
