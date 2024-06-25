@@ -1,48 +1,59 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {Animated, Easing, SafeAreaView, Text, View} from 'react-native';
 import LottieView from 'lottie-react-native';
-import myAnimation from './animation2.json';
+import myAnimation from './animation3.json';
 
 const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
 export default function ControllingAnimationProgress2() {
   const animationProgress = useRef(new Animated.Value(0));
-  // const [basetime, setBasetime] = useState(2000);
+  const [basetime, setBasetime] = useState(500);
 
   const animeControl = (basetime: number) =>
-    Animated.sequence([
-      Animated.timing(animationProgress.current, {
-        toValue: 1,
-        duration: basetime * 0.6,
-        useNativeDriver: false,
-        easing: Easing.linear,
-      }),
-      Animated.timing(animationProgress.current, {
-        toValue: 0,
-        duration: basetime * 0.4,
-        useNativeDriver: false,
-        easing: Easing.linear,
-      }),
-    ]);
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(animationProgress.current, {
+          toValue: 1,
+          duration: basetime,
+          useNativeDriver: false,
+          easing: Easing.linear,
+        }),
+        // Animated.timing(animationProgress.current, {
+        //   toValue: 0,
+        //   duration: basetime * 0.4,
+        //   useNativeDriver: false,
+        //   easing: Easing.linear,
+        // }),
+      ]),
+    );
 
   useEffect(() => {
-    let basetime = 2000;
-    // myAnimation.layers.map(l => {
-    //   console.log(l.nm);
-    // });
     const interval = setInterval(() => {
       animeControl(basetime).start();
     }, basetime);
     return () => clearInterval(interval);
-  }, []);
+  }, [basetime]);
 
   // useEffect(() => {
-  //   const interval2 = setInterval(() => {
-  //     console.log('basetime decreased by 100', basetime);
-  //     setBasetime(basetime - 100);
-  //   }, 1000);
-  //   return () => clearInterval(interval2);
-  // }, [basetime]);
+  //   const timeout = setTimeout(() => {
+  //     console.log('setTimeout');
+  //     setBasetime(1000);
+  //   }, 10000);
+  //   return () => clearTimeout(timeout);
+  // }, []);
+  useEffect(() => {
+    const interval2 = setInterval(() => {
+      console.log('setInterval', basetime);
+      if (basetime === 500) {
+        setBasetime(1500);
+      } else if (basetime === 1500) {
+        setBasetime(1000);
+      } else if (basetime === 1000) {
+        setBasetime(500);
+      }
+    }, 10000);
+    return () => clearInterval(interval2);
+  }, [basetime]);
 
   return (
     <AnimatedLottieView

@@ -15,14 +15,14 @@ export default function TouchableOpacityWithAnimation() {
   return (
     <SafeAreaView style={{width: '100%', height: '100%'}}>
       <ControllingAnimationProgress2 />
-      <View style={styles.container}>
+      {/* <View style={styles.container}>
         <View style={styles.countContainer}>
           <Text>Count: {count}</Text>
         </View>
         <TouchableOpacity style={styles.button} onPress={onPress}>
           <Text>Press Here</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </SafeAreaView>
   );
 }
