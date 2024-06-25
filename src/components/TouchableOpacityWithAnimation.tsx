@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import HeartBeat from './animation/heart';
+import SurroundingAnimation from './animation/surrounding';
 
 export default function TouchableOpacityWithAnimation() {
   const [count, setCount] = useState(0);
@@ -14,6 +15,7 @@ export default function TouchableOpacityWithAnimation() {
 
   return (
     <SafeAreaView style={{width: '100%', height: '100%'}}>
+      <SurroundingAnimation />
       <HeartBeat />
       <View style={styles.container}>
         <View style={styles.countContainer}>
