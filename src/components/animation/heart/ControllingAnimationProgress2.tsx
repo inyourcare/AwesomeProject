@@ -5,9 +5,8 @@ import myAnimation from './animation3.json';
 
 const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
-export default function ControllingAnimationProgress2({style}: {style: StyleProp<ViewStyle>}) {
+export default function ControllingAnimationProgress2({style, basetime}: {style: StyleProp<ViewStyle>,basetime:number}) {
   const animationProgress = useRef(new Animated.Value(0));
-  const [basetime, setBasetime] = useState(500);
 
   const animeControl = (basetime: number) =>
     Animated.loop(
@@ -41,19 +40,6 @@ export default function ControllingAnimationProgress2({style}: {style: StyleProp
   //   }, 10000);
   //   return () => clearTimeout(timeout);
   // }, []);
-  useEffect(() => {
-    const interval2 = setInterval(() => {
-      console.log('setInterval', basetime);
-      if (basetime === 500) {
-        setBasetime(1500);
-      } else if (basetime === 1500) {
-        setBasetime(1000);
-      } else if (basetime === 1000) {
-        setBasetime(500);
-      }
-    }, 10000);
-    return () => clearInterval(interval2);
-  }, [basetime]);
 
   return (
     <AnimatedLottieView
