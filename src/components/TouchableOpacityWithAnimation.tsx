@@ -20,13 +20,13 @@ export default function TouchableOpacityWithAnimation() {
   const onPress = () => {
     console.log('hi');
     const {MobiCareModule} = NativeModules;
-    console.log(MobiCareModule);
+    // console.log(MobiCareModule);
     MobiCareModule.devicesScanStart('A019719');
   };
   const onPress2 = () => {
     console.log('hi2');
     const {MobiCareModule} = NativeModules;
-    console.log(MobiCareModule);
+    // console.log(MobiCareModule);
     MobiCareModule.stopHeartRate();
   };
 
