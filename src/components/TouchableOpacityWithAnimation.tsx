@@ -28,6 +28,7 @@ export default function TouchableOpacityWithAnimation() {
     const {MobiCareModule} = NativeModules;
     // console.log(MobiCareModule);
     MobiCareModule.stopHeartRate();
+    MobiCareModule.powerOFFDevices();
   };
 
   const connectDevices = () => {
