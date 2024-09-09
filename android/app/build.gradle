@@ -76,6 +76,10 @@ android {
 
     namespace "com.awesomeproject"
 
+    packagingOptions {
+        pickFirst '**/*.so'
+    }
+
     defaultConfig {
         applicationId "com.awesomeproject"
         minSdkVersion rootProject.ext.minSdkVersion
